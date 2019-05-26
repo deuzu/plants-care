@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  influxdb:
+    image: influxdb
+    restart: always
+    environment:
+      - INFLUXDB_DB=home
+    ports:
+      - 8086:8086
+    volumes:
+      - influxdb_volume:/var/lib/influxdb
+  chronograf:
+    image: chronograf
+    restart: always
+    ports:
+      - 8888:8888
+    volumes:
+      - chronograf_volume:/var/lib/chronograf
+
+volumes:
+  influxdb_volume: ~
+  chronograf_volume: ~
