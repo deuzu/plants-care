@@ -3,10 +3,12 @@
 #include <InfluxDb.h>
 
 #define SensorPin A0
-#define INFLUXDB_HOST "192.168.1.220"
+// #define WIFI_SSID "deuzu"
+// #define WIFI_PASS "N9HD@DKje@k5B&84M$%h"
+#define WIFI_SSID "Virson"
+#define WIFI_PASS "VirsonWifi123"
+#define INFLUXDB_HOST "deuzu.com"
 #define INFLUXDB_DB "home"
-#define WIFI_SSID "deuzu"
-#define WIFI_PASS "N9HD@DKje@k5B&84M$%h"
 
 ESP8266WiFiMulti WiFiMulti;
 Influxdb influx(INFLUXDB_HOST);
@@ -41,9 +43,10 @@ void loop() {
   moistSensorValue = moistSensorValue / 100.0;
   Serial.println(moistSensorValue);
 
-  InfluxData measurement("metrics");
-  measurement.addTag("plant", "lavandula_livingroom_1");
-  measurement.addValue("temperature", 0.00);
+  InfluxData measurement("plants");
+  measurement.addTag("plant", "livingroom_lavandula_1");
+  measurement.addValue("air_temperature", 0.00);
+  measurement.addValue("air_moisture", 0.00);
   measurement.addValue("moisture", moistSensorValue);
   influx.write(measurement);
 

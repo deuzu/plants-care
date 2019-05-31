@@ -17,7 +17,17 @@ services:
       - 8888:8888
     volumes:
       - chronograf_volume:/var/lib/chronograf
+  kapacitor:
+    image: kapacitor
+    restart: always
+    ports:
+      - 9092:9092
+    environement:
+        - KAPACITOR_INFLUXDB_0_URLS_0=http://influxdb:8086
+    volumes:
+      - kapacitor_volume:/var/lib/kapacitor
 
 volumes:
   influxdb_volume: ~
   chronograf_volume: ~
+  kapacitor_volume: ~
