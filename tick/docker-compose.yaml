@@ -22,7 +22,7 @@ services:
     restart: always
     ports:
       - 9092:9092
-    environement:
+    environment:
         - KAPACITOR_INFLUXDB_0_URLS_0=http://influxdb:8086
     volumes:
       - kapacitor_volume:/var/lib/kapacitor
