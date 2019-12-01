@@ -13,42 +13,80 @@
 ESP8266WiFiMulti WiFiMulti;
 Influxdb influx(INFLUXDB_HOST);
 
-void setup() {
-  Serial.begin(9600);
-  Serial.println("### Hello ###");
-
+void setupWifi() {
   WiFiMulti.addAP(WIFI_SSID, WIFI_PASS);
   Serial.print("Connecting to WIFI");
+
   while (WiFiMulti.run() != WL_CONNECTED) {
     Serial.print(".");
     delay(100);
   }
+
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
+}
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("### Setup started ###");
+
+  setupWifi();
 
   influx.setDb(INFLUXDB_DB);
 
-  Serial.println("Setup done");
+  Serial.println("### Setup done ###");
 }
 
-float moistSensorValue = 0;
+float readMoistureSensor() {
+  float moistSensorValue = 0;
 
-void loop() {
   for (int i = 0; i <= 100; i++) {
     moistSensorValue = moistSensorValue + analogRead(SensorPin);
     delay(1);
   }
 
   moistSensorValue = moistSensorValue / 100.0;
-  Serial.println(moistSensorValue);
+  // Serial.println(moistSensorValue);
 
+  return moistSensorValue;
+}
+
+float readAirTemperatureSensor() {
+  float airTemperatureSensorValue = 0.00;
+
+  return airTemperatureSensorValue;
+}
+
+float readAirHumiditySensor() {
+  float airHumiditySensorValue = 0.00;
+
+  return airHumiditySensorValue;
+}
+
+float readLightSensor() {
+  float lightSensorValue = 0.00;
+
+  return lightSensorValue;
+}
+
+void writeSensorsValues(float moistureSensorValue, float airTemperatureSensorValue, float airHumiditySensorValue, float lightSensorValue) {
   InfluxData measurement("plants");
   measurement.addTag("plant", "livingroom_lavandula_1");
-  measurement.addValue("air_temperature", 0.00);
-  measurement.addValue("air_moisture", 0.00);
   measurement.addValue("moisture", moistSensorValue);
+  measurement.addValue("air_temperature", airTemperatureSensorValue);
+  measurement.addValue("air_humidity", airHumiditySensorValue);
+  measurement.addValue("light", lightSensorValue);
   influx.write(measurement);
+}
+
+void loop() {
+  float moistureSensorValue = readMoistureSensor();
+  float airTemperatureSensorValue = readAirTemperatureSensor();
+  float airHumiditySensorValue = readAirHumiditySensor();
+  float lightSensorValue = readLightSensor();
+
+  writeSensorsValues();
 
   delay(5000);
 }
