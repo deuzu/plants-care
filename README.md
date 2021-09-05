@@ -1,13 +1,16 @@
 # Plants Monitoring
 
 ## Moisture level
+
 ### Modules
 
-- NodeMCU v3 (esp8266): [Documentation](https://docs.zerynth.com/latest/official/board.zerynth.nodemcu3/docs/index.html)
-- Analog multiplexer: [Data sheet](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4051.pdf)
+- NodeMCU Lolin v3 esp8266 (ESP-12F) Wi-FI CH340: [Documentation](https://docs.zerynth.com/latest/official/board.zerynth.nodemcu3/docs/index.html)
+- Analog multiplexer 74HC4051_8-Mux: [Data sheet](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4051.pdf)
 - Soil moisture sensor: Funduino [Data sheet](https://www.emartee.com/Attachment.php?name=42241.pdf)
 
-### Schema
+### Schematic
+
+![schematic](./MoistureLevel/schematic.png)
 
 ### Box & Connectics
 
@@ -15,7 +18,7 @@
 
 ![moisture level diagram](./MoistureLevel/diagram.png)
 
-[edit diagram](https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#R7VhLb6MwEP41kbqHjXhDj0n6OjRS1Ry6PbrggLcGI%2BM00F%2B%2FY7ADhKRNu%2BlWq5ZGKjOeGXv8fWMbj%2BxZWl5ylCdzFmE6soyoHNlnI8sybdeAf1JTNRrfcxpFzEmkjFrFgjxjpVR%2B8YpEuOgZCsaoIHlfGbIsw6Ho6RDnbN03WzLa7zVHMR4oFiGiQ%2B0diUSitJ5htA1XmMSJ6vpUN6RIGytFkaCIrTsq%2B3xkzzhjonlLyxmmcvL0vDR%2BF3taNwPjOBOHOJDJ%2FHIyv%2BLlBXWMW3Rf3v2e%2FPSbKE%2BIrlTCBRarXI1YVHoaijVJKcpAmi5ZJhaqxQA5TAiNrlHFVnIYhUDho5amCePkGewRhSYTFNDMhULZ8mQ0QumMUcbrfuylK%2F96ngsZUfXFcQG%2BNzpnc0s1R2XP8BoVQo%2BSUYrygjzU45aOKeIxyaZMCJYqo0Jw9og7w%2FHqRyXd0TeP9HjEIkxURDWXmAtc7gXJ3EAPNYNZigWvwEQ5OIosVV9cd6indUmHdX6gGK%2FYHm8Ct4SAF8WJN%2FAjGPBjTZZkQA9IWAzmL2MNXzoIKxWiJM5ApHgp3eSMESi5iVILlstgOQpJFl%2FXNmdOq7lVeUsVA98lrcsqIVGEM4k9E0ighw1Bc0YyUU%2BMO4UfTN%2FMGLsjFwY%2BA9lsZfhJcw5QZ5ALIjVoGFi0xoV4F9z7q27IAQU61MVBoGu7o4N%2BOgA9J5lc2r9x%2F0jcXeuTcTftAfCUsS%2B7GXQxf%2FvOIHPRM5OgMFlxfJwtwgpe3SMsYwdtTMP5KN44A97IwCQsQFnLBscomjNSCJiGBc4KxouTH192OXn%2FCtKU6Fu2jp1c%2BLglxN1xoMyieUOHE0WLb%2BSPjvyOzeMfI%2B8NkIdvQVSdlPL5RvzoiOsz%2F%2BchPvx4HKAcrvgTjtQmCgvBRH6SgxhSVBQklHu7SPV5AJdE%2FJIIjM3AU%2FK9bBsbdqDkM72p10LVEW4wJ5AY5lqXQZK%2FNl2DcF%2FHdrXYhqolHavJAUeDe4GD4ILs2YqH%2BIBKgdNPjF%2BM6OwmQAdxdwfgWseh%2FAR56qexiwWqhxtJ%2BvacYZ72zxm2vsjQIZpElVf34mE7kGP3A5324zTzMIgDVEFVx0zV5N7xbq6MVDdmYLw4LMvv23s9c3hpBtDWxwaBvyiZ4ff0oGRerRLNa%2BPovDYPZHDwfxB466BsWlvEO5TAMKCxbxqeH5iwMLmO7%2FXi%2Bofx%2BXUOgdheBzbm7aWqff4H)
+<!-- edit diagram - https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#R7VhLb6MwEP41kbqHjXhDj0n6OjRS1Ry6PbrggLcGI%2BM00F%2B%2FY7ADhKRNu%2BlWq5ZGKjOeGXv8fWMbj%2BxZWl5ylCdzFmE6soyoHNlnI8sybdeAf1JTNRrfcxpFzEmkjFrFgjxjpVR%2B8YpEuOgZCsaoIHlfGbIsw6Ho6RDnbN03WzLa7zVHMR4oFiGiQ%2B0diUSitJ5htA1XmMSJ6vpUN6RIGytFkaCIrTsq%2B3xkzzhjonlLyxmmcvL0vDR%2BF3taNwPjOBOHOJDJ%2FHIyv%2BLlBXWMW3Rf3v2e%2FPSbKE%2BIrlTCBRarXI1YVHoaijVJKcpAmi5ZJhaqxQA5TAiNrlHFVnIYhUDho5amCePkGewRhSYTFNDMhULZ8mQ0QumMUcbrfuylK%2F96ngsZUfXFcQG%2BNzpnc0s1R2XP8BoVQo%2BSUYrygjzU45aOKeIxyaZMCJYqo0Jw9og7w%2FHqRyXd0TeP9HjEIkxURDWXmAtc7gXJ3EAPNYNZigWvwEQ5OIosVV9cd6indUmHdX6gGK%2FYHm8Ct4SAF8WJN%2FAjGPBjTZZkQA9IWAzmL2MNXzoIKxWiJM5ApHgp3eSMESi5iVILlstgOQpJFl%2FXNmdOq7lVeUsVA98lrcsqIVGEM4k9E0ighw1Bc0YyUU%2BMO4UfTN%2FMGLsjFwY%2BA9lsZfhJcw5QZ5ALIjVoGFi0xoV4F9z7q27IAQU61MVBoGu7o4N%2BOgA9J5lc2r9x%2F0jcXeuTcTftAfCUsS%2B7GXQxf%2FvOIHPRM5OgMFlxfJwtwgpe3SMsYwdtTMP5KN44A97IwCQsQFnLBscomjNSCJiGBc4KxouTH192OXn%2FCtKU6Fu2jp1c%2BLglxN1xoMyieUOHE0WLb%2BSPjvyOzeMfI%2B8NkIdvQVSdlPL5RvzoiOsz%2F%2BchPvx4HKAcrvgTjtQmCgvBRH6SgxhSVBQklHu7SPV5AJdE%2FJIIjM3AU%2FK9bBsbdqDkM72p10LVEW4wJ5AY5lqXQZK%2FNl2DcF%2FHdrXYhqolHavJAUeDe4GD4ILs2YqH%2BIBKgdNPjF%2BM6OwmQAdxdwfgWseh%2FAR56qexiwWqhxtJ%2BvacYZ72zxm2vsjQIZpElVf34mE7kGP3A5324zTzMIgDVEFVx0zV5N7xbq6MVDdmYLw4LMvv23s9c3hpBtDWxwaBvyiZ4ff0oGRerRLNa%2BPovDYPZHDwfxB466BsWlvEO5TAMKCxbxqeH5iwMLmO7%2FXi%2Bofx%2BXUOgdheBzbm7aWqff4H -->
 
 Example of sent metrics of plants moisture level:
 
@@ -45,8 +48,8 @@ cat /dev/ttyUSB0
 
 - [ ] Battery
 - [ ] Box and connectics
-- [ ] Schemas
-- [ ] Rewrite it in Rust
-- [ ] automatic watering & leafs watering
+- [x] Schemas
 - [x] [arduino-cli](https://github.com/brendandburns/arduino-air-quality-exporter/blob/master/arduino-cli.yaml)
 - [x] [example post request](https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/#http-post)
+- [ ] automatic watering & leafs watering
+- [ ] [Rewrite it in Rust](https://blog.cecton.com/posts/rust-and-arduino-part1/)
