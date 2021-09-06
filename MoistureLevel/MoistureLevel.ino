@@ -2,9 +2,9 @@
 #include <ESP8266HTTPClient.h>
 #include "Secrets.h"
 
-#define MUX_A D0
-#define MUX_B D1
-#define MUX_C D2
+#define MUX_A D1
+#define MUX_B D2
+#define MUX_C D3
 #define ANALOG_INPUT A0
 
 WiFiClient client;

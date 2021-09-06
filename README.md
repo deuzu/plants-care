@@ -4,7 +4,7 @@
 
 ### Modules
 
-- NodeMCU Lolin v3 esp8266 (ESP-12F) Wi-FI CH340: [Documentation](https://docs.zerynth.com/latest/official/board.zerynth.nodemcu3/docs/index.html)
+- NodeMCU Lol1n v3 ESP8266 (ESP-12E) Wi-FI CH340: [Documentation](https://www.instructables.com/Getting-Started-With-ESP8266LiLon-NodeMCU-V3Flashi/)
 - Analog multiplexer 74HC4051_8-Mux: [Data sheet](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4051.pdf)
 - Soil moisture sensor: Funduino [Data sheet](https://www.emartee.com/Attachment.php?name=42241.pdf)
 
@@ -12,7 +12,9 @@
 
 ![schematic](./MoistureLevel/schematic.png)
 
-### Box & Connectics
+### Box, Connectics & PCB
+
+To do
 
 ### Code
 
@@ -46,8 +48,12 @@ cat /dev/ttyUSB0
 
 ### To do
 
-- [ ] Battery
+- [ ] Moisture sensor signal ouput voltage can be up to 1.7v, Analog0 tolerate up to 1v. Is a resistor needed?
+- [ ] Battery [LiFePO4 18650](https://www.all-batteries.fr/accus-lithium-fer-phosphate-ifr18650-lifepo4-3-2v-1-8ah-ft-acl9073.html)
+- [ ] [Power consumption savings](https://diyi0t.com/how-to-reduce-the-esp8266-power-consumption/) with [deep sleep](https://randomnerdtutorials.com/esp8266-deep-sleep-with-arduino-ide/): [gist examples](https://github.com/thingforward/esp8266-deep-sleep-examples)
+- [ ] PCB [how to](https://riton-duino.blogspot.com/2018/11/concevoir-un-pcb.html)
 - [ ] Box and connectics
+- [ ] Solar panels
 - [x] Schemas
 - [x] [arduino-cli](https://github.com/brendandburns/arduino-air-quality-exporter/blob/master/arduino-cli.yaml)
 - [x] [example post request](https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/#http-post)
