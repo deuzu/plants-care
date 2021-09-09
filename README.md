@@ -36,16 +36,6 @@ EOF
 
 [Arduino CLI](https://arduino.github.io/arduino-cli/getting-started/)
 
-```
-arduino-cli core update-index
-arduino-cli core install esp8266:esp8266
-arduino-cli board list
-arduino-cli compile --fqbn esp8266:esp8266:nodemcuv2 MoistureLevel && \
-arduino-cli upload -p /dev/ttyUSB0 --fqbn esp8266:esp8266:nodemcuv2 MoistureLevel && \
-stty -F /dev/ttyUSB0 raw 9600 && \
-cat /dev/ttyUSB0
-```
-
 ### To do
 
 - [ ] Moisture sensor signal ouput voltage can be up to 1.7v, Analog0 tolerate up to 1v. Is a resistor needed? [E.g. using RVD](https://www.esp8266.com/viewtopic.php?f=5&t=5556&start=5)
