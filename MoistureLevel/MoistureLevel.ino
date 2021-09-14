@@ -7,7 +7,7 @@
 #define MUX_C D3
 #define ANALOG_INPUT A0
 
-WiFiClient client;
+WiFiClientSecure client;
 HTTPClient http;
 
 typedef struct metric {
@@ -79,6 +79,7 @@ void sendMetrics(metric metrics[]) {
   }
   int contentLength = body.length();
 
+  client.setInsecure();
   http.begin(client, PUSH_GATEWAY_BASEURL);
   http.addHeader("Content-Type", "text/plain; version=0.0.4");
   http.addHeader("Content-Length", String(contentLength));

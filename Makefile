@@ -3,8 +3,7 @@
 all: install compile upload tty ouput
 
 install:
-	@test -d ".arduino15/" || arduino-cli core update-index
-	@test -d ".arduino15/" || arduino-cli core install esp8266:esp8266
+	@test -d ".arduino15/" || (arduino-cli core update-index && arduino-cli core install esp8266:esp8266)
 
 compile:
 	@arduino-cli compile --fqbn esp8266:esp8266:nodemcuv2 MoistureLevel

@@ -1,4 +1,4 @@
-# Plants Monitoring
+# Plants Care
 
 ## Moisture level
 
@@ -36,16 +36,73 @@ EOF
 
 [Arduino CLI](https://arduino.github.io/arduino-cli/getting-started/)
 
+To find the board:
+```console
+arduino-cli board list
+```
+
+If error "Could not open serial port /dev/ttyUSB0" is encountered:
+```console
+sudo usermod -a -G dialout <username>
+# or
+sudo adduser <username> dialout
+```
+
+### Monitoring server example
+
+*docker-compose.yaml*
+```yaml
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+      - prometheus:/prometheus
+
+  push-gateway:
+    image: prom/pushgateway
+    volumes:
+      - pushgateway:/data
+
+  grafana:
+    image: grafana/grafana
+    volumes:
+      - grafana:/var/lib/grafana
+      
+volumes:
+  prometheus: ~
+  pushgateway: ~
+  grafana: ~
+```
+
+*prometheus.yaml*
+```yaml
+global:
+  scrape_interval: 30s
+  evaluation_interval: 30s
+
+rule_files: ~
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: [localhost:9090]
+
+  - job_name: push-gateway
+    static_configs:
+      - targets: [push-gateway:9091]
+    honor_labels: true
+```
+
 ### To do
 
 - [ ] Moisture sensor signal ouput voltage can be up to 1.7v, Analog0 tolerate up to 1v. Is a resistor needed? [E.g. using RVD](https://www.esp8266.com/viewtopic.php?f=5&t=5556&start=5)
 - [ ] Battery [LiFePO4 18650](https://www.all-batteries.fr/accus-lithium-fer-phosphate-ifr18650-lifepo4-3-2v-1-8ah-ft-acl9073.html)
+- [ ] How to waterproof moisture sensor? Silicon?
 - [ ] [Power consumption savings](https://diyi0t.com/how-to-reduce-the-esp8266-power-consumption/) with [deep sleep](https://randomnerdtutorials.com/esp8266-deep-sleep-with-arduino-ide/): [gist examples](https://github.com/thingforward/esp8266-deep-sleep-examples)
+- [ ] Handle HTTPS properly
 - [ ] automatic watering & leafs watering [e.g.](https://how2electronics.com/iot-smart-agriculture-automatic-irrigation-system-with-esp8266/)
 - [ ] PCB [how to](https://riton-duino.blogspot.com/2018/11/concevoir-un-pcb.html) & [Phil's lab youtube channel](https://www.youtube.com/channel/UCVryWqJ4cSlbTSETBHpBUWw)
 - [ ] Box and connectics
 - [ ] Solar panels
-- [x] Schemas
-- [x] [arduino-cli](https://github.com/brendandburns/arduino-air-quality-exporter/blob/master/arduino-cli.yaml)
-- [x] [example post request](https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/#http-post)
 - [ ] [Rewrite it in Rust](https://blog.cecton.com/posts/rust-and-arduino-part1/) + [Tonari examle](https://blog.tonari.no/rust-simple-hardware-project)
