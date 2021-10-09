@@ -1,73 +1,111 @@
-# Plants Care
+<br />
+<p align="center">
+  <img src="./logo.svg" alt="Logo" width="125" height="125">
+  <!-- logomakr.com/1kEr6C# && picsvg.com -->
 
-## Moisture level
+  <h3 align="center">Plants Care</h3>
 
-### Modules
+  <p align="center">
+    <a href="https://github.com/deuzu/plants-care/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/deuzu/plants-care/issues">Request Feature</a>
+    ·
+    <a href="https://github.com/deuzu/plants-care/pulls">Send a Pull Request</a>
+  </p>
+</p>
+
+## Table of Contents
+
+* [About the Project](#about-the-project)
+* [Getting Started](#getting-started)
+* [Roadmap](#roadmap)
+* [Contributing](#contributing)
+* [License](#license)
+
+## About the Project
+
+Plants Care is a system that automatically takes care of plants.  
+It controls soils moisture and trigger watering based on configured rules.  
+
+### Built With
+
+- [Arduino](https://www.arduino.cc/)
+- [NodeJS](https://nodejs.org/en/) & [TypeScript](https://www.typescriptlang.org/)
+
+## Getting Started
+
+![plants care diagram](./plants-care-diagram.png)
+
+<!-- edit diagram: https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#R7VltU6M6FP41%2FegdCKWlH9uq3Z2xu469c92931IIkDUQNoS%2B%2BOvvSQkFCtaqWHfu6DhKTk5Ccp7nJE9Cz5pGm5nASTjnHmE9ZHibnnXZQwgZAwT%2FlGWbW0wTWbklENTTttKwoI9EGw1tzahH0pqj5JxJmtSNLo9j4sqaDQvB13U3n7P6WxMckIZh4WLWtN5TT4baOjCMsuILoUGoXz0qKpbYfQgEz2L9vh6y%2FN1PXh3hoi%2Ftn4bY4%2BuKybrqWVPBucyfos2UMBXcImx5u%2BsnavfjFiSWpzSg4%2FlsPP8iNtesb9zhn5v7X%2BMLU4O1wizTAZlTV3CIthScMSL04OW2CFi6phHDMZQmPngtdI0BZTekzLvBW56pEaUSIlSUJiEX9BH8MYMqEwxQLaTmAxqo3ihjU8642L3HWlreyBvVWi5Uj%2FpdgqTQ9raYvnlgmuNNzfEGp7IYJcwLJyld7satGkZYBDSecCl5pJ1SmP4DqQzHxI7neHqYxaRD7IaZUKFIH4h0Q91fExqN1ooISTYVk4ZqRnhEpNiCi651NGv2adXPy%2BuSo6hgYlihp2lpI9Z5Eey7LrkBD5oeL6FKv0EVQbCnyMGpah1xmkoVDbCQOOUibXAHJi8bwY15TqYK%2FNqEGQ1iKIp8fhMVPgqpO9Z2yRPVW4JdGgc3xFcx6JeWOx0WZeLQ1me7%2FAup55FYMYNLLPFyT9%2BE01juwmZP4BcCOTX%2Bsns2jHwKZbMsw69yF3LKY5gMpjucCXBsTVL5PB2O5%2BLzJNGsgLQ5iRSFX%2FecsBucAOgVJ1T%2F1P1kwDszwEbnY8A0mU6ksaHjMLkI7xZLfPn120WTAEIhT1ZqGVhjSQTAkG%2FfPg0ygSXl8Scr3pcVQ%2BeDWTFosAI4EQRKTeSkUPPOouSTCO9LBNM4UTa8GxNM1MCYeCDAdREiFPKAx5hdldbJTlUTT0e99LnhCs9dyH4RKbdaPeJMcqUTZVRoS4ij2P5Q7QEOXfxZrbss1GFe2haqr4rKgR71HZe4bps0XDp23zaO6b6UZ8Ilx8KkTz4gRIk84qcZoEJ4FH9BGKy0q%2FoZp3twG2neQwOm6O3RFTwG6hEOjj6OcVEDL6pUNsnBGJz8FAnWIZVkAYmqatZw%2BqxDfIiOTwbt6HjD0dJogNuBRLdRXaMjy24km4laks3pQKK34oFOweM2S8OLGSzCa7ztGpRj%2BeNh4vitCA1chyz9bkDpWwcHJ%2BOMoDA%2FDe7ZvwkzrfH3x0vI%2Ba%2FLIknOuwB2GPtn1y7rxLUL%2FVFrV%2FPi41aorkOSNU8tnSTAWzaQ0xNggD4wAVoj7XysAqju%2FxU58AoF0FUWHT1Knz%2BNdk3HQqjtYO%2BgpW7Z860ylDSzjAOaDUdVojzv37cPiJWPoKTZfipv0CfW%2F4V6J8ib1y%2FgpzLP%2FCOZhwz7RcxDfeOov%2F1W%2F%2BE5mN28jC20nLqUhxofa8wHvzP1iWHyDxFersO1YS8Ivy%2F%2B7qkd4Xp%2FabdXhXlnT8hCfVivbn8vPLe7wFUiWg7uERzB2VP7bT1Du5b1luHUV6pis6xuoGbLBtrFzXs72M1LtleDPbvSWOOEwt%2Fyhg4GOKZxKnEMXX0SoJrQLd9eTGfYCQGgWH4BzBeH8jurdfUf -->
+
+### Hardware Setup
 
 - NodeMCU Lol1n v3 ESP8266 (ESP-12E) Wi-FI CH340: [Documentation](https://www.instructables.com/Getting-Started-With-ESP8266LiLon-NodeMCU-V3Flashi/)
 - Analog multiplexer 74HC4051_8-Mux: [Data sheet](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4051.pdf)
 - Soil moisture sensor: Funduino [Data sheet](https://www.emartee.com/Attachment.php?name=42241.pdf)
+- Water pump: to do
+- Battery: [LiFePO4 18650](https://www.all-batteries.fr/accus-lithium-fer-phosphate-ifr18650-lifepo4-3-2v-1-8ah-ft-acl9073.html)
 
-### Schematic
+![schematic](./arduino/PlantsCare/schematic.png)
 
-![schematic](./MoistureLevel/schematic.png)
+#### Arduino
 
-### Box, Connectics & PCB
+1. Rename [./arduino/Secrets.h.dist](./arduino/PlantsCare/Secrets.h.dist) to `./arduino/Secrets.h` and replace its values.
+
+```c++
+#define PUSH_GATEWAY_BASEURL "https://ip:5091/metrics/job/plantcare/instance/a"
+#define PLANTS_CARE_BASEURL "https://ip:5080/api/watering/a"
+```
+
+`a` at the end of the URLs represent a microcontroller, name it as you want.  
+You can install how many microcontroller as needed.  
+
+2. Compile & Upload (see [Makefile](./arduino/Makefile))
+3. Bury soil moisture sensors in plants
+4. Plug a battery
+5. ???
+6. Profit!
+
+#### Box, Connectics & PCB
 
 To do
 
-### Code
+### Software Setup
 
-![moisture level diagram](./MoistureLevel/diagram.png)
-
-<!-- edit diagram - https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#R7VhLb6MwEP41kbqHjXhDj0n6OjRS1Ry6PbrggLcGI%2BM00F%2B%2FY7ADhKRNu%2BlWq5ZGKjOeGXv8fWMbj%2BxZWl5ylCdzFmE6soyoHNlnI8sybdeAf1JTNRrfcxpFzEmkjFrFgjxjpVR%2B8YpEuOgZCsaoIHlfGbIsw6Ho6RDnbN03WzLa7zVHMR4oFiGiQ%2B0diUSitJ5htA1XmMSJ6vpUN6RIGytFkaCIrTsq%2B3xkzzhjonlLyxmmcvL0vDR%2BF3taNwPjOBOHOJDJ%2FHIyv%2BLlBXWMW3Rf3v2e%2FPSbKE%2BIrlTCBRarXI1YVHoaijVJKcpAmi5ZJhaqxQA5TAiNrlHFVnIYhUDho5amCePkGewRhSYTFNDMhULZ8mQ0QumMUcbrfuylK%2F96ngsZUfXFcQG%2BNzpnc0s1R2XP8BoVQo%2BSUYrygjzU45aOKeIxyaZMCJYqo0Jw9og7w%2FHqRyXd0TeP9HjEIkxURDWXmAtc7gXJ3EAPNYNZigWvwEQ5OIosVV9cd6indUmHdX6gGK%2FYHm8Ct4SAF8WJN%2FAjGPBjTZZkQA9IWAzmL2MNXzoIKxWiJM5ApHgp3eSMESi5iVILlstgOQpJFl%2FXNmdOq7lVeUsVA98lrcsqIVGEM4k9E0ighw1Bc0YyUU%2BMO4UfTN%2FMGLsjFwY%2BA9lsZfhJcw5QZ5ALIjVoGFi0xoV4F9z7q27IAQU61MVBoGu7o4N%2BOgA9J5lc2r9x%2F0jcXeuTcTftAfCUsS%2B7GXQxf%2FvOIHPRM5OgMFlxfJwtwgpe3SMsYwdtTMP5KN44A97IwCQsQFnLBscomjNSCJiGBc4KxouTH192OXn%2FCtKU6Fu2jp1c%2BLglxN1xoMyieUOHE0WLb%2BSPjvyOzeMfI%2B8NkIdvQVSdlPL5RvzoiOsz%2F%2BchPvx4HKAcrvgTjtQmCgvBRH6SgxhSVBQklHu7SPV5AJdE%2FJIIjM3AU%2FK9bBsbdqDkM72p10LVEW4wJ5AY5lqXQZK%2FNl2DcF%2FHdrXYhqolHavJAUeDe4GD4ILs2YqH%2BIBKgdNPjF%2BM6OwmQAdxdwfgWseh%2FAR56qexiwWqhxtJ%2BvacYZ72zxm2vsjQIZpElVf34mE7kGP3A5324zTzMIgDVEFVx0zV5N7xbq6MVDdmYLw4LMvv23s9c3hpBtDWxwaBvyiZ4ff0oGRerRLNa%2BPovDYPZHDwfxB466BsWlvEO5TAMKCxbxqeH5iwMLmO7%2FXi%2Bofx%2BXUOgdheBzbm7aWqff4H -->
-
-Example of sent metrics of plants moisture level:
-
-```console
-cat <<EOF | curl --data-binary @- localhost:5092/metrics/job/plantcare/instance/a
-# HELP moisture level in percentage
-# TYPE moisture_level gauge
-moisture_level{sensor="0"} 12
-moisture_level{sensor="1"} 74.605713
-moisture_level{sensor="2"} 42
-EOF
-```
-
-[Arduino CLI](https://arduino.github.io/arduino-cli/getting-started/)
-
-To find the board:
-```console
-arduino-cli board list
-```
-
-If error "Could not open serial port /dev/ttyUSB0" is encountered:
-```console
-sudo usermod -a -G dialout <username>
-# or
-sudo adduser <username> dialout
-```
-
-### Monitoring server example
+*Using Docker-Compose*
 
 *docker-compose.yaml*
 ```yaml
 services:
+  plants-care-api:
+    image: deuzu/plants-care-api:alpha
+    environment:
+      ALERT_BASE_URL: https://ip:5030/api/alerts
+      ALERT_AUTH_TOKEN: Bearer eyL0R3m1p5um... # Grafana > Configuration > API keys
+    ports:
+      - 5080:80
+
   prometheus:
     image: prom/prometheus
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yml
       - prometheus:/prometheus
+    ports:
+      - 5090:9090
 
   push-gateway:
     image: prom/pushgateway
     volumes:
       - pushgateway:/data
+    ports:
+      - 5091:9091
 
   grafana:
     image: grafana/grafana
     volumes:
       - grafana:/var/lib/grafana
+    ports:
+      - 5030:3000
       
 volumes:
   prometheus: ~
@@ -94,15 +132,67 @@ scrape_configs:
     honor_labels: true
 ```
 
-### To do
+Consider using a reverse proxy like [nginx-proxy/nginx-proxy](https://github.com/nginx-proxy/nginx-proxy) or [traefik/traefik](https://github.com/traefik/traefik).
 
-- [ ] Moisture sensor signal ouput voltage can be up to 1.7v, Analog0 tolerate up to 1v. Is a resistor needed? [E.g. using RVD](https://www.esp8266.com/viewtopic.php?f=5&t=5556&start=5)
-- [ ] Battery [LiFePO4 18650](https://www.all-batteries.fr/accus-lithium-fer-phosphate-ifr18650-lifepo4-3-2v-1-8ah-ft-acl9073.html)
+## Roadmap
+
 - [ ] How to waterproof moisture sensor? Silicon?
 - [ ] [Power consumption savings](https://diyi0t.com/how-to-reduce-the-esp8266-power-consumption/) with [deep sleep](https://randomnerdtutorials.com/esp8266-deep-sleep-with-arduino-ide/): [gist examples](https://github.com/thingforward/esp8266-deep-sleep-examples)
 - [ ] Handle HTTPS properly
-- [ ] automatic watering & leafs watering [e.g.](https://how2electronics.com/iot-smart-agriculture-automatic-irrigation-system-with-esp8266/)
+- [ ] automatic watering [e.g.](https://how2electronics.com/iot-smart-agriculture-automatic-irrigation-system-with-esp8266/)
 - [ ] PCB [how to](https://riton-duino.blogspot.com/2018/11/concevoir-un-pcb.html) & [Phil's lab youtube channel](https://www.youtube.com/channel/UCVryWqJ4cSlbTSETBHpBUWw)
 - [ ] Box and connectics
 - [ ] Solar panels
 - [ ] [Rewrite it in Rust](https://blog.cecton.com/posts/rust-and-arduino-part1/) + [Tonari examle](https://blog.tonari.no/rust-simple-hardware-project)
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **extremely appreciated**.  
+Please read [those guidelines](./.github/CONTRIBUTING.md) before contributing to this repository.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feat-amazing-feature`)
+3. Commit your Changes (`git commit -m 'feat(scope): Add some AmazingFeature' -m "Closes #42"`)
+4. Push to the Branch (`git push origin feat-amazing-feature`)
+5. Open a Pull Request
+
+### Development
+
+#### Arduino
+
+`cd arduino & make`
+
+[Arduino CLI](https://arduino.github.io/arduino-cli/getting-started/)
+
+To find the board:
+```console
+arduino-cli board list
+```
+
+If error "Could not open serial port /dev/ttyUSB0" is encountered:
+```console
+sudo usermod -a -G dialout <username>
+# or
+sudo adduser <username> dialout
+```
+
+Example soil moisture level sent:
+
+```console
+cat <<EOF | curl --data-binary @- localhost:5092/metrics/job/plantcare/instance/a
+# HELP moisture level in percentage
+# TYPE moisture_level gauge
+moisture_level{sensor="0"} 12
+moisture_level{sensor="1"} 74.605713
+moisture_level{sensor="2"} 42
+moisture_level{sensor="3"} 654
+EOF
+```
+
+#### API
+
+`cd api && make`
+
+## License
+
+[MIT](./LICENSE)
