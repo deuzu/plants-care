@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  api:
+    image: node:lts-bullseye
+    volumes:
+      - ./:/app
+    working_dir: /app
+    ports:
+      - 4980:80
+    command: npm run start:dev
