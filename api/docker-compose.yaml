@@ -3,9 +3,33 @@ version: '3.7'
 services:
   api:
     image: node:lts-bullseye
+    restart: unless-stopped
+    environment:
+      DATABASE_CONNECTION_TIMEOUT: ${DATABASE_CONNECTION_TIMEOUT}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_CONNECTION_TIMEOUT: ${DATABASE_CONNECTION_TIMEOUT}
+      DATABASE_CONNECTION_LIMIT: ${DATABASE_CONNECTION_LIMIT}
     volumes:
       - ./:/app
     working_dir: /app
     ports:
       - 4980:80
     command: npm start
+
+  database:
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: 1
+      MARIADB_DATABASE: ${DATABASE_NAME}
+      MARIADB_USER: ${DATABASE_USER}
+      MARIADB_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - database:/var/lib/mysql
+      - ./database-init.sql:/docker-entrypoint-initdb.d/1-database-init.sql
+
+volumes:
+  database: ~

@@ -1,4 +1,6 @@
 const path = require('path')
+const NodemonPlugin = require('nodemon-webpack-plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 module.exports = {
   target: 'node',
@@ -9,10 +11,16 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.ts', '.js' ],
+    plugins: [
+      new TsconfigPathsPlugin(),
+    ],
   },
   module: {
     rules: [
-      { test: /\.ts$/, use: 'ts-loader', exclude: /node_modules/ },
+      { test: /\.ts$/, use: 'ts-loader', exclude: '/node_modules/' },
     ],
   },
+  plugins: [
+    new NodemonPlugin(),
+  ],
 }
