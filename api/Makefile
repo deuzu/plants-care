@@ -1,9 +1,11 @@
-.PHONY: install start
+.PHONY: all install publish
 
-all: install start
+all: all install publish
 
 install:
 	@npm install
+	@docker-compose up -d
 
-start:
-	@docker-compose up -d api
+publish:
+	@docker build . -t deuzu/plants-care-api:alpha
+	@docker push deuzu/plants-care-api:alpha

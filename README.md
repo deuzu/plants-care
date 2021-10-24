@@ -79,11 +79,28 @@ To do
 services:
   plants-care-api:
     image: deuzu/plants-care-api:alpha
+    restart: unless-stopped
     environment:
-      ALERT_BASE_URL: https://ip:5030/api/alerts
-      ALERT_AUTH_TOKEN: Bearer eyL0R3m1p5um... # Grafana > Configuration > API keys
+      DATABASE_HOST: plants-care-database
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE_CONNECTION_TIMEOUT: ${DATABASE_CONNECTION_TIMEOUT}
+      DATABASE_CONNECTION_LIMIT: ${DATABASE_CONNECTION_LIMIT}
     ports:
       - 5080:80
+
+  plants-care-database:
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: 1
+      MARIADB_DATABASE: ${DATABASE_NAME}
+      MARIADB_USER: ${DATABASE_USER}
+      MARIADB_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - plants-care-database:/var/lib/mysql
+      - ./database-init.sql:/docker-entrypoint-initdb.d/1-database-init.sql
 
   prometheus:
     image: prom/prometheus
@@ -108,6 +125,7 @@ services:
       - 5030:3000
       
 volumes:
+  plants-care-database: ~
   prometheus: ~
   pushgateway: ~
   grafana: ~
